@@ -114,7 +114,7 @@ class AdminUser Extends MySqlDB
 	//note: if array is empty the assumption is the user does not exist
 	function blnGetAdminUser()
 	{
-		    print $sqlData = 'SELECT a.fauId, a.fauUserName, a.fauPassword, a.fauFirstName, a.fauLastName, b.fulId 
+		    $sqlData = 'SELECT a.fauId, a.fauUserName, a.fauPassword, a.fauFirstName, a.fauLastName, b.fulId 
 						FROM tblAdminUsers a INNER JOIN tblUserLevel b ON a.fulId = b.fulId 
 						WHERE a.fauUserName = "'.$this->m_strUsername.'" 
 							AND a.fauPassword = "'.md5($this->m_strPassword).'" 

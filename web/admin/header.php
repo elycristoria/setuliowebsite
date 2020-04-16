@@ -1,16 +1,19 @@
 <?php
-include '../../conf/config.php';
+include '../../conf/admin/config.php';
 ?>
 <html>
 <title><?php print AD_CLIENT_TITLE ?></title>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="scripts/style.css" />
-<script type="text/javascript" src="scripts/default.js"></script>
-<script type="text/javascript" src="scripts/calendarxp/agenda.js"></script>
-<script type="text/javascript" src="scripts/calendarxp/normal.js"></script>
-<script type="text/javascript" src="scripts/calendarxp/plugins.js"></script>
+<link rel="stylesheet" href="../scripts/style.css" />
+<script type="text/javascript" src="../scripts/default.js"></script>
+<script type="text/javascript" src="../scripts/nicEdit.js"></script>
+
+<script type="text/javascript">
+	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
+
 <script type="text/JavaScript">
 <!--
 function MM_swapImgRestore() { //v3.0
@@ -47,7 +50,7 @@ function MM_swapImage() { //v3.0
 <body>
 <table id="Table_01" width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<td background="images/logo-background.png"><img src="images/header_banner.png"></td>
+		<td background="images/header_banner.png"><img src="images/header_banner.png"></td>
 	</tr>
 		<tr>
 		<td>
@@ -57,16 +60,23 @@ function MM_swapImage() { //v3.0
 					
 				</tr>
 				<tr>
-					<td><a href="students-list.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('student','','images/button_home_focus.png',1)">
-						<img src="images/button_home.png" name="student" id="student" height="30" alt=""></a></td>
+					<td><a href="profile.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('profile','','images/profile_white.png',1)">
+						<img src="images/profile.png" name="profile" id="profile" height="30" alt=""></a></td>
+					<td><a href="experience-list.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('experience','','images/experience_white.png',1)">
+						<img src="images/experience.png" name="experience" id="experience" height="30" alt=""></a></td>
+					<td><a href="portfolio-list.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('portfolio','','images/portfolio_white.png',1)">
+						<img src="images/portfolio.png" name="portfolio" id="portfolio" height="30" alt=""></a></td>
+					<td><a href="interest.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('interest','','images/interests_white.png',1)">
+						<img src="images/interests.png" name="interest" id="interest" height="30" alt=""></a></td>
 					<?php if ($_SESSION['intUserLevel'] == '1') { ?>
-					<td><a href="admin_user_list.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('admin','','images/button_login-account_focus.png',1)">
-					<img src="images/button_login-account.png" name="admin" id="admin" alt="" height="30"></a></td>
+					<td><a href="admin_user_list.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('users','','images/users_white.png',1)">
+					<img src="images/users.png" name="users" id="users" alt="" height="30"></a></td>
 					<?php } else { ?>
-					<td><a href="admin_user_list.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('admin','','images/admin_g.gif',1)">
+					<td><a href="admin_user_list.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('users','','images/users_white.png',1)">
 					<?php } ?>
-					<td><a href="logout.php">
-						<img src="images/logout.png" name="logout" id="logout" alt="" height="30"></td></a>
+					<td><a href="logout.php" onMouseOut="MM_swapimgRestore()" onMouseOver="MM_swapImage('logout','','images/logout_white.png',1)">
+					<img src="images/logout.png" name="logout" id="logout" alt="" height="30"></a></td>
+					<td class="subnav_username"><?php print "Welcome back ". $_SESSION['strUsername'];  ?></td>
 				</tr>
 			</table>
 		</td>

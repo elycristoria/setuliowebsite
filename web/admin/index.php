@@ -1,5 +1,5 @@
 <?php
-require_once ('../../conf/config.php');
+require_once ('../../conf/admin/config.php');
 $objSession = new Session();
 $objMySqlDb = new MySqlDb();
 $strMessage = '';

@@ -109,7 +109,7 @@ class MySqlDb
  	function arrGetAll($strTableName, $strFieldName, $strValue)
 	{
 		$arrData = array();
-		print $sqlData = 'SELECT * FROM '.$this -> strTableName.' WHERE '.$strFieldName.' = \''.$strValue.'\'';
+		$sqlData = 'SELECT * FROM '.$this -> strTableName.' WHERE '.$strFieldName.' = \''.$strValue.'\'';
 		if ($rsData = mysqli_query($this->voidConnect(),$sqlData))
 		{
 			while ($rowData = mysqli_fetch_assoc($rsData))
@@ -175,8 +175,8 @@ class MySqlDb
 		{
 			 $sqlUpdate .= $key.' = "'.$value.'",';
 		}
-		print $sqlUpdate 	= substr_replace($sqlUpdate, '', -1, 1);
-		print $sqlUpdate	.= ' WHERE '.$strFieldName .' = \''.$strValue.'\'';
+		$sqlUpdate 	= substr_replace($sqlUpdate, '', -1, 1);
+		$sqlUpdate	.= ' WHERE '.$strFieldName .' = \''.$strValue.'\'';
 		if ($rsInsert = mysqli_query($this->voidConnect(),$sqlUpdate))
 		{
 			return true;

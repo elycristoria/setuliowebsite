@@ -708,13 +708,14 @@ Class DataList extends MySqlDb
 				{
 				    
 				    $arrTokens = explode('|OR|', $this -> m_arrColumnValues[$key]);
+
+					//$strValue = $rowData[$strKey];
 					/*$strValue = preg_replace("/(MYSQL_DATA::)([a-zA-Z0-9_]*)([^(::)]*)(::)/", 
 					                       "\$rowData['\\2']", 
-	              				 $this -> m_arrColumnValues[$key]); */
+	              				 $this -> m_arrColumnValues[$key]);*/
 					$strValue = preg_replace_callback("/(MYSQL_DATA::)([a-zA-Z0-9_]*)([^(::)]*)(::)/",
-					    function ($matches) { return  "\$rowData[$matches[2]]"; }, $this -> m_arrColumnValues[$key]);
+					    function ($matches) use ($rowData) { return $rowData[$matches[2]]; }, $this -> m_arrColumnValues[$key]);
 					//aids to
-					
 					//if form edit is enable wrap value with span
 					if ($this -> m_blnEditEnable)					
 					{

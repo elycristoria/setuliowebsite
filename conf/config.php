@@ -1,8 +1,9 @@
 <?php
 session_start();
+date_default_timezone_set('NZ');
 //error_reporting(E_ERROR | E_PARSE | E_WARNING);
 //ini_set(error_reporting,E_ALL);
-require_once '../../Kernel.php';
+require_once '../Kernel.php';
 /* Constants */
 define('AD_DB_HASH_KEY', 'Setu Lio');
 define('AD_CLIENT_TITLE', 'Setu Lio Official Web Administration Page');
@@ -14,13 +15,15 @@ define('AD_DB_USER', "root");
 define('AD_DB_PASSWD', "");
 
 /* Libraries */
-require_once('../../lib/general.class.php');
-require_once('../../lib/database.class.php');
-require_once('../../lib/session.class.php');
-require_once('../../lib/data_list.class.php');
-require_once('../../lib/filters.class.php'); 
-require_once('../../lib/admin_users.class.php'); 
- 
+require_once('../lib/general.class.php');
+require_once('../lib/database.class.php');
+require_once('../lib/session.class.php');
+require_once('../lib/data_list.class.php');
+require_once('../lib/filters.class.php'); 
+require_once('../lib/admin_users.class.php'); 
+require_once('../lib/profile.class.php');  
+require_once('../lib/portfolio.class.php');
+require_once('../lib/experience.class.php');
 
 //$iOldErrorReportingLevel = error_reporting(error_reporting() & !E_STRICT); 
 //error_reporting($iOldErrorReportingLevel);
@@ -53,7 +56,7 @@ if ($_SERVER['PHP_SELF'] == '/setulio.com/web/admin/index.php')
 	}
 }
 
-else
+/*else
 {
 	if ($objSession -> blnIsVariableSet($arrSessionLoginVars))
 	{
@@ -66,7 +69,7 @@ else
 	{
 		General::voidRedirectUrl('index.php');
 	}
-}
+}*/
 
 
 
